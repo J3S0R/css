@@ -1,0 +1,210 @@
+/* Importer une police sur fonts.google.com */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+/* Ajouter du style de base à tous les éléments de la page */
+/* * {
+    margin: 0;
+    padding: 0;
+} */
+
+body {
+    /* ajoute une image en fond  */
+    background: url(./img/bg.jpg) center/cover;
+
+    /* le body fait 100% de la page */
+    min-height: 100vh;
+}
+
+
+h1 {
+    /* Met le texte en Majuscule */
+    text-transform: uppercase; 
+
+     /* Espace de 3px entre les lettres */
+    letter-spacing: 3px;
+
+    /* Aligne le texte au centre */
+    text-align: center; 
+
+    /* Taille du texte (doit être en rem) */
+    font-size: 2.5rem; 
+
+    /* A créer dans la console, ajoute une ombre */
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.418);
+
+    /* Couleur du texte */
+    color: rgb(156, 46, 63);
+
+    /* Sous-ligne */
+    text-decoration: underline;
+
+    /* La police du texte importée au dessus */
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Création d'une grande boite contennant tout le main */
+main{
+    /* la boite main fait 500px en hauteur mais si les enfants dans la boite sont plus grands, elle peut s'aggrandir aussi en suivant*/
+    min-height: 500px;
+
+    /* la boite main fait 90% de la largeur de la page */
+    width: 90%;
+
+    /* ajoute une couleur de fond a la boite  */
+    background: rgba(255, 255, 255, 0.699);
+
+    /* Centrer la boite sur les côtés de la page // Margin = Extérieur */
+    margin: 0 auto;
+
+    /* Espace de 15px en hauteur/largeur dans la boite // Padding = Intérieur */
+    padding: 15px;
+    
+    /* Ajouter des contours */
+    border: 2px solid rgb(42, 103, 194);
+
+    /* Arrondir les bordures */
+    border-radius: 20px;
+}
+
+h2{
+    /* Ajuste le margin du h2 a 0 car ne l'est pas de base */
+    margin: 0;
+}
+
+.flexbox, .grid, .absolute{
+    /* Bordure de la div flexbox */
+    border: 2px solid skyblue;
+
+    border-radius: 10px;
+
+    /* Espace de 10px hauteur/largeur dans la boite flexbox */
+    padding: 10px;
+
+    /* Espace de 20px dans la boite parent(main) */
+    margin-top: 20px;
+
+
+    min-height: 150px;
+}
+
+/* FLEXBOX SERT A REPARTIR EQUITABLEMENT DES ELEMENTS SUR LA PAGE */
+
+
+.flexbox ul{
+    padding: 0;
+
+    /* Prends tous les élements enfants et les met cote a cote */
+    display: flex;
+
+    /* On les aligne en les répartisant équitablement sur la page*/
+    justify-content: space-around;
+}
+
+.flexbox li{
+    /* Enleve le point de la liste */
+    list-style: none;
+
+    /* On les transforme en boite */
+    /* Longueur */
+    height: 160px;
+    /* Largeur */
+    width: 160px;
+
+    /* Marge entre toutes les boites de 10px */
+    margin: 10px;
+
+    background: turquoise;
+
+    /* Centrer un unique élément verticalement et horizontalement (le texte) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* GRID = MISE EN PAGE EN GRILLE */
+
+.grid-container{
+    display: grid;
+    /* On donne 30% au premier enfant et 70% au deuxième enfant */
+    grid-template-columns: 30% 70%;
+}
+
+
+/* On donne 80% de la place du 30% du grid avec une margin top de 20px à l'image */
+.grid img{
+    width: 80%;
+    margin-top: 20px;
+}
+
+/* Création de la forme de la grille */
+form{
+    display: grid;
+    /* Création de 2 colonnes */
+    grid-template-columns: 1fr 1fr;
+    /* Création de 3 lignes */
+    grid-template-rows: 1fr 1fr 1fr;
+    /* Création de la grille */
+    grid-template-areas: 
+    "i1 i2"
+    "ta ta"
+    "vi bt";
+}
+
+/* style des input et textarea */
+input, textarea{
+    margin: 5px;
+    border: 1px solid darkblue;
+    padding: 10px;
+    font-size: 1.1rem;
+    font-family: "DMSERIF";
+    border-radius: 5px;
+}
+
+/* On place les élements dans la grille  */
+textarea{
+    grid-area: ta;
+    height: 40px;
+    /* Ne pas permettre a un hote de modifier cet élément */
+    resize: none;
+}
+#btn{
+    grid-area: bt;
+    /* Montrer que c'est cliquable */
+    cursor: pointer;
+    background-color: cyan;
+    /* Quand on va cliquer la designe le temps de transition avec le hover */
+    transition: 0.3s;
+}
+/* Modifier le bouton quand il est survolé par la souris  */
+#btn:hover{
+    background: darkblue;
+    color: white;
+}
+
+/* ABSOLUTE */
+.absolute{
+    /* l'élément enfant de absolute est contenu dans les frontières de son parent c'est la position relative placée dans le parent qui le permet sinon il est de base par rapport au body*/
+    position: relative;
+}
+
+#circle1{
+    height: 80px;
+    width: 80px;
+    background: skyblue;
+    position: absolute;
+    border-radius: 150px;
+    top: 0;
+    right: 0;
+}
+
+#circle2{
+    height: 40px;
+    width: 40px;
+    border-radius: 150px;
+    background: teal;
+    position: absolute;
+    /* Centrer */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
